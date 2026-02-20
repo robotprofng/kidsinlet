@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids in LET</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6b21a8, #7c3aed, #fb923c);
+    color: white;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    background: white;
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgba(76, 29, 149, 0.95);
+}
+
+.nav-links a {
+    color: rgba(76, 29, 149, 0.95);
+    margin-left: 25px;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -6px;
+    left: 0;
+    background: #fb923c;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #fb923c;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+.cta-buttons {
+    margin-top: 40px;
+}
+
+.cta-buttons a {
+    display: block;
+    padding: 15px 35px;
+    margin: 10px;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.cta-primary {
+    background: white;
+    color: #6b21a8;
+    text-decoration: none;
+}
+
+.cta-primary:hover {
+    background: #fed7aa;
+}
+
+.cta-secondary {
+    background: #f97316;
+    color: white;
+    text-decoration: none;
+}
+
+.cta-secondary:hover {
+    background: #ea580c;
+}
+
+/* IMPACT */
+.impact {
+    background: white;
+    color: #333;
+    padding: 100px 20px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    text-align: center;
+}
+
+.impact h2 {
+    color: #6b21a8;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.impact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.impact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.impact-card:hover {
+    transform: translateY(-10px);
+}
+
+.impact-card h3 {
+    color: #f97316;
+}
+
+/* PROJECTS */
+.projects {
+    padding: 100px 20px;
+    background: linear-gradient(to right, #fb923c, #7c3aed);
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.project {
+    background: white;
+    color: #333;
+    padding: 40px;
+    border-radius: 25px;
+    margin-bottom: 60px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.project h3 {
+    color: #6b21a8;
+    margin-bottom: 20px;
+}
+
+.project ul {
+    margin-left: 20px;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #f97316;
+    font-weight: 600;
+}
+
+/* SLIDER */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    padding: 10px;
+}
+
+.slide img, .slide video {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.slider-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-buttons button {
+    background: rgba(107, 33, 168, 0.8);
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.slider-buttons button:hover {
+    background: #f97316;
+}
+
+    
+/* VOLUNTEER */
+.volunteer {
+    padding: 100px 20px;
+    background: white;
+    text-align: center;
+    color: #6b21a8;
+}
+
+.volunteer form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.volunteer input, .volunteer textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    background: orange;
+    color: black;
+}
+
+.volunteer button {
+    padding: 12px 25px;
+    background: #6b21a8;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    
+/* SUPPORT */
+.support {
+    background: #4c1d95;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.support a {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #f97316;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.support a:hover {
+    background: #ea580c;
+}
+
+/* CONTACT */
+.contact {
+    background: #4c1d95;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 10p;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.contact a {
+    color: #fb923c;
+}
+
+/* FOOTER */
+footer {
+    background: #3b0764;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        margin: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+</style>
+</head>
+
+<body><!-- HEADER --><header>
+    <div class="container header-container">
+        <h1 class="logo">KIDS IN LET</h1>
+        <nav class="nav-links">
+            <a href="#mission">MISSION</a>
+            <a href="#impact">IMPACT</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </div>
+</header> 
+    
+    <!-- HERO -->
+    <section class="hero" id="mission">
+    <h1>Empowering Young Climate-Tech Leaders</h1>
+        <p>
+            Kids in LET is building a generation of African children in rural communities using technology to solve plastic pollution & climate change locally and globally
+        </p>   
+            
+    <div class="cta-buttons">
+        <a href="#projects" class="cta-primary">Projects Achieved</a>
+        <a href="#contact" class="cta-secondary">Volunteer/Partner With Us</a>
+    </div>
+</section><!-- IMPACT --><section class="impact" id="impact">
+    <div class="container">
+        <h2>Impact Made</h2>
+        <div class="impact-cards">
+            <div class="impact-card"><h3>1127+ Children Empowered</h3></div>
+            <div class="impact-card"><h3>10+ Rural Communities Reached</h3></div>
+            <div class="impact-card"><h3>15 Eco-Tech Clubs Launched</h3></div>
+            <div class="impact-card"><h3>Sustainable Development Goals: <br> 4 & 11 Achieved</h3></div>
+            <div class="impact-card"><h3>Sustainable Peer-to-Peer Monitoring System</h3></div>
+            <div class="impact-card"><h3>Global Sustainability Awards Recipient 2025</h3></div>
+        </div>
+    </div>
+</section><!-- PROJECTS -->
+    
+    <section class="projects" id="projects">
+    <div class="container">
+        <h2>Community Projects</h2>
+        <!-- Your existing project blocks remain unchanged below -->
+        
+   
+        <!-- PROJECT 1 -->
+<div class="project">
+    <h3>IJANIKIN COMMUNITY (LAGOS STATE)</h3>
+    <ul>
+        <li><strong>Location:</strong> Credence Schools, Lagos</li>
+        <li><strong>Date:</strong> 3rd April, 2025</li>
+        <li><strong>Direct/Indirect Beneficiaries:</strong> 570+ students</li>
+        <li><strong>Project:</strong> STEM-A-CHILD CAMPAIGN 2025</li>
+        <li><strong>Activities:</strong>
+            <!-- Collapsible content -->
+            <div class="collapsed-content">
+                <ul>
+                    <li>Sensitization on plastic pollution and environmental protection.</li>
+                    <li>Hands-on recycling of plastic/e-waste into functional reading lamps.</li>
+                    <li>Interactive session on UN SDGs and young leadership.</li>
+                    <li>Peer collaboration, problem-solving, and mentorship activities.</li>
+                    <li><strong>Post-Workshop Assessment:</strong> Over 80% demonstrated increased environmental awareness and better recycling habits.</li>
+                    <li><strong>Sustainability:</strong> Peer-to-peer monitoring system to maintain responsible environmental practices.</li>
+                </ul>
+            </div>
+            <button class="learn-more-btn">Read More</button>
+        </li>
+    </ul>
+    
+        <!-- Gallery Slider -->
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="images/ijanikin1.jpg" alt="Ijanikin Workshop 1">
+                </div>
+                <div class="slide">
+                    <img src="images/ijanikin2.jpg" alt="Ijanikin Workshop 2">
+                </div>
+                <div class="slide">
+                    <video controls>
+                        <source src="videos/ijanikin_workshop.mp4" type="video/mp4">
+                        Your browser does not support the video.
+                    </video>
+                </div>
+            </div>
+            <div class="slider-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- CSS -->
+<style>
+.learn-more-btn {
+    background: #6b21a8;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    margin: 10px 0 0 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: block;
+}
+
+/* Collapsed content initially hidden */
+.collapsed-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.collapsed-content ul { padding-left: 20px; }
+
+.collapsed-content.show {
+    max-height: 1000px; /* large enough to show everything */
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+document.querySelectorAll('.learn-more-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.previousElementSibling;
+        content.classList.toggle('show');
+        button.textContent = content.classList.contains('show') ? 'Show Less' : 'Learn More';
+    });
+});
+</script>
+        
+       
+    <!-- PROJECT 2 -->
+    <div class="project">
+        <h3> UGWUAJI COMMUNITY (ENUGU STATE)</h3>
+        <ul>
+            <li><strong>Location:</strong> Noble Whyte International School, Enugu</li>
+            <li><strong>Date:</strong> 12th February, 2025</li>
+            <li><strong>Direct/Indirect Beneficiaries:</strong> 100+ students</li>
+            <li><strong>Project:</strong> Waste-to-Wealth STEM Workshop</li>
+            <li><strong>Activities:</strong>
+            <div class="collapsed-content">
+                <ul>
+                        <li>Sensitization on plastic pollution and environmental protection.</li>
+                        <li>Hands-on recycling of plastic/e-waste into functional reading lamps.</li>
+                        <li>Interactive session on becoming a great young leader.</li>
+                        <li>Peer collaboration and environmental responsibility activities.</li>
+                        <li><strong>Post-Workshop Survey:</strong> Over 80% increased environmental awareness and better recycling habits.</li>
+                        <li><strong>Sustainability:</strong> Peer-to-peer monitoring system promoting responsible environmental practices.</li>
+                        
+                </ul>
+                </div>
+            <button class="learn-more-btn">Read More</button>
+            </li>
+        </ul>
+            
+            
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="images/ugwuaji1.jpg" alt="Ugwuaji Workshop 1">
+                </div>
+                <div class="slide">
+                    <video controls>
+                        <source src="videos/ugwuaji_workshop.mp4" type="video/mp4">
+                        Your browser does not support the video.
+                    </video>
+                </div>
+            </div>
+            <div class="slider-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+        <a href="https://www.facebook.com/61560044202537/posts/pfbid023YtsfeR5JALdEFSZgrvdaYQuPYTEZouatywkRksPgHdqE9CC7Xjxp8m4EUuaPQBAl/?app=fbl" target="_blank">Facebook Link</a>
+    </div>
+
+        
+        <!-- CSS -->
+<style>
+.learn-more-btn {
+    background: #6b21a8;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    margin: 10px 0 0 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: block;
+}
+
+/* Collapsed content initially hidden */
+.collapsed-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.collapsed-content ul { padding-left: 20px; }
+
+.collapsed-content.show {
+    max-height: 1000px; /* large enough to show everything */
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+document.querySelectorAll('.learn-more-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.previousElementSibling;
+        content.classList.toggle('show');
+        button.textContent = content.classList.contains('show') ? 'Show Less' : 'Learn More';
+    });
+});
+</script>
+        
+        
+   
+        
+        
+    <!-- PROJECT 3 -->
+    <div class="project">
+        <h3>OBIAGU COMMUNITY (ENUGU STATE)</h3>
+        <ul>
+            <li><strong>Location:</strong>Uzommiri Study Center, Enugu</li>
+            <li><strong>Date:</strong> 27th July 2024</li>
+            <li><strong>Beneficiaries:</strong> 50+ girls</li>
+            <li><strong>Project:</strong> Wind Energy Workshop for Rural Kids</li>
+             <li><strong>Activities:</strong>
+            <div class="collapsed-content">
+                    <ul>
+                        <li>Hands-on tech workshop: mini windmill models.</li>
+                        <li>Interactive leadership session for young leaders.</li>
+                        <li>Certificates awarded to participants.</li>
+                        <li>Teamwork and group activities.</li>
+                <li><strong>Post-Workshop Survey:</strong>
+                    <ul>
+                        <li>90% reported increased interest in STEM fields.</li>
+                        <li>85% improved understanding of renewable energy.</li>
+                    </ul>
+                </li>
+                <li><strong>Sustainability:</strong>
+                    <ul>
+                        <li>Peer-led learning circles.</li>
+                        <li>Ongoing mentorship via Uzommiri Study Center.</li>
+                        <li>Resource hub for educational materials.</li>
+                    </ul>
+                </li>
+        </ul>
+                </div>
+            <button class="learn-more-btn">Read More</button>
+        </li>
+    </ul>
+    
+                
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slide">
+                    <img src="images/obiagu1.jpg" alt="Obiagu Workshop 1">
+                </div>
+                <div class="slide">
+                    <video controls>
+                        <source src="videos/obiagu_workshop.mp4" type="video/mp4">
+                        Your browser does not support the video.
+                    </video>
+                </div>
+            </div>
+            <div class="slider-buttons">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+        <a href="https://www.facebook.com/61560044202537/posts/pfbid0gEkDhea55ihr6hqinj62xJs1nnNMVFDA4qaN6tTZLNMpdiSpQAoDjHMSfoEPAhiTl/?app=fbl" target="_blank">Facebook Link</a>
+    </div>
+
+        <!-- CSS -->
+<style>
+.learn-more-btn {
+    background: #6b21a8;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    margin: 10px 0 0 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: block;
+}
+
+/* Collapsed content initially hidden */
+.collapsed-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.collapsed-content ul { padding-left: 20px; }
+
+.collapsed-content.show {
+    max-height: 1000px; /* large enough to show everything */
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+document.querySelectorAll('.learn-more-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.previousElementSibling;
+        content.classList.toggle('show');
+        button.textContent = content.classList.contains('show') ? 'Show Less' : 'Learn More';
+    });
+});
+</script>
+        
+        
+</section>
+   
+    
+ 
+    
+    
+<!-- VOLUNTEER REGISTRATION -->
+<section class="volunteer" id="volunteer">
+    <h2>VOLUNTEER WITH US</h2>
+    <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Whatsapp Number">
+        <textarea rows="4" placeholder="Why do you want to volunteer?"></textarea>
+        <button type="submit">Submit Registration</button>
+    </form>
+</section>
+<!-- SUPPORT US -->
+<section class="support" id="support">
+  <div class="container">
+    <h2>Support Our Work</h2>
+    <p>Your donations help us empower more young African climate leaders.</p>
+
+    <!-- Donation amount selection -->
+    <div class="donation-amounts">
+      <button class="amount-btn" data-amount="1000">₦1,000</button>
+      <button class="amount-btn" data-amount="5000">₦5,000</button>
+      <button class="amount-btn" data-amount="10000">₦10,000</button>
+      <button class="amount-btn" data-amount="other">Other</button>
+      <input type="number" id="custom-amount" placeholder="Enter amount">
+    </div>
+
+    <!-- Donate button -->
+    <a href="https://paystack.com/pay/YOUR-LINK" target="_blank" class="donate-btn" id="donate-btn">Donate via Paystack</a>
+  </div>
+
+  <!-- Animated background circles -->
+  <div class="floating-bg">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.support {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6b21a8, #7c3aed, #fb923c);
+  color: white;
+  text-align: center;
+  padding: 70px 10px;
+  border-radius: 25px;
+}
+
+.support h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease forwards;
+}
+
+.support p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.donation-amounts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.amount-btn {
+  background: white;
+  color: #4c1d95;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  animation: popIn 0.8s ease forwards;
+}
+
+.amount-btn:hover, .amount-btn.active {
+  background: #f97316;
+  color: white;
+  transform: translateY(-5px) scale(1.05);
+}
+
+#custom-amount {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  width: 150px;
+  margin-left: 5px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.donate-btn {
+  display: inline-block;
+  padding: 18px 50px;
+  background: #f97316;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: slideUp 1s ease forwards;
+}
+
+.donate-btn:hover {
+  background: #ea580c;
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* Floating background circles */
+.floating-bg span {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-bg span:nth-child(2) { left: 30%; animation-delay: 2s; }
+.floating-bg span:nth-child(3) { left: 50%; animation-delay: 4s; }
+.floating-bg span:nth-child(4) { left: 70%; animation-delay: 1s; }
+.floating-bg span:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg);}
+  50% { transform: translateY(-40px) rotate(180deg);}
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0;}
+  100% { transform: scale(1); opacity: 1;}
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(50px); opacity: 0;}
+  100% { transform: translateY(0); opacity: 1;}
+}
+
+@keyframes fadeInDown {
+  0% { transform: translateY(-20px); opacity: 0;}
+  100% { transform: translateY(0); opacity: 1;}
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(20px); opacity: 0;}
+  100% { transform: translateY(0); opacity: 1;}
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+const amountButtons = document.querySelectorAll('.amount-btn');
+const customAmountInput = document.getElementById('custom-amount');
+const donateBtn = document.getElementById('donate-btn');
+
+amountButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remove active from all
+    amountButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    if(btn.dataset.amount === 'other') {
+      customAmountInput.style.display = 'inline-block';
+      setTimeout(() => customAmountInput.style.opacity = 1, 50);
+      customAmountInput.focus();
+    } else {
+      customAmountInput.style.opacity = 0;
+      setTimeout(() => customAmountInput.style.display = 'none', 300);
+      customAmountInput.value = '';
+    }
+
+    donateBtn.textContent = btn.dataset.amount === 'other' ? "Donate via Paystack" : `Donate ₦${btn.dataset.amount} via Paystack`;
+  });
+});
+</script>
+
+        <section>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </section>
+        
+    <!-- CONTACT --><section class="contact" id="contact">
+    <h2>Reach Us on Social Media</h2>
+    <p>Instagram: <a href="https://www.instagram.com/kids_in_let" target="_blank">@KidsinLET</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61560044202537" target="_blank">Kids in LET</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/company/kids-in-let/" target="_blank">Kids in LET</a></p>
+    <p>Email: <a href="mailto:kidsinletafrica@gmail.com">kidsinletafrica@gmail.com</a></p>
+</section>
+    
+ <footer>
+    &copy; 2026 Kids in Leadership, Enterpreneurship & Tech | All Rights Reserved
+</footer></body>
+</html>
