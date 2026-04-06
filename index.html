@@ -693,6 +693,30 @@ document.querySelectorAll('.learn-more-btn').forEach(button => {
         button.textContent = content.classList.contains('show') ? 'Show Less' : 'Learn More';
     });
 });
+    const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const slides = document.querySelectorAll('.slide');
+
+let index = 0;
+
+function showSlide(i) {
+  slides.forEach((slide, idx) => {
+    slide.style.display = idx === i ? 'block' : 'none';
+  });
+}
+
+nextBtn.addEventListener('click', () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+});
+
+prevBtn.addEventListener('click', () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+});
+
+// Initialize
+showSlide(index);
 </script>
         
         
