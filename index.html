@@ -423,16 +423,17 @@ footer {
         <!-- Gallery Slider -->
         <div class="slider-container">
             <div class="slider-track">
-                <div class="slide">
-                    <img src="IMG-20250404-WA0016.jpg" alt="Ijanikin Workshop 1">
-                </div>
+                
                 <div class="slide">
                     <img src="IMG-20250403-WA0107~2.jpg" alt="Ijanikin Workshop 2">
                 </div>
                 <div class="slide">
                     <img src="IMG-20250403-WA0078.png" alt="Ijanikin Workshop 3">
                 </div>
-
+                
+                <div class="slide">
+                    <img src="IMG-20250404-WA0016.jpg" alt="Ijanikin Workshop 1">
+                </div>
                       
                 <div class="slide">
                     <img src="IMG-20250403-WA0097.jpg" alt="Ijanikin Workshop 4">
@@ -693,30 +694,7 @@ document.querySelectorAll('.learn-more-btn').forEach(button => {
         button.textContent = content.classList.contains('show') ? 'Show Less' : 'Learn More';
     });
 });
-    const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const slides = document.querySelectorAll('.slide');
-
-let index = 0;
-
-function showSlide(i) {
-  slides.forEach((slide, idx) => {
-    slide.style.display = idx === i ? 'block' : 'none';
-  });
-}
-
-nextBtn.addEventListener('click', () => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-});
-
-prevBtn.addEventListener('click', () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-});
-
-// Initialize
-showSlide(index);
+    
 </script>
         
         
@@ -933,6 +911,6 @@ amountButtons.forEach(btn => {
 </section>
     
  <footer>
-    &copy; 2026 Kids in Leadership, Enterpreneurship & Tech | All Rights Reserved
+    &copy; 2026 Kids in Leadership & Environmental Tech | All Rights Reserved
 </footer></body>
 </html>
