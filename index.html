@@ -217,7 +217,7 @@ header {
 .slide {
     min-width: 100%;
     padding: 10px;
-    display: none;
+    
 }
 
 .slide img, .slide video {
@@ -915,31 +915,7 @@ amountButtons.forEach(btn => {
     &copy; 2026 Kids in Leadership & Environmental Tech | All Rights Reserved
  </footer>
 
-<script>
-let index = 0;
 
-const slides = document.querySelectorAll('.slider-buttons');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-
-function showSlide(i) {
-  slides.forEach((slide, idx) => {
-    slide.style.display = (idx === i) ? 'block' : 'none';
-  });
-}
-
-nextBtn.onclick = function() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-};
-
-prevBtn.onclick = function() {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-};
-
-showSlide(index);
-</script>
 
 
 </body>
