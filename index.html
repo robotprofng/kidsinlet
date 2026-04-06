@@ -916,7 +916,32 @@ amountButtons.forEach(btn => {
  </footer>
 
 
+<script>
+document.querySelectorAll('.slider-container').forEach(container => {
 
+  const track = container.querySelector('.slider-track');
+  const slides = container.querySelectorAll('.slide');
+  const nextBtn = container.querySelector('.next');
+  const prevBtn = container.querySelector('.prev');
+
+  let index = 0;
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateSlider();
+  });
+
+});
+</script>
 
 </body>
 </html>
