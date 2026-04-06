@@ -217,6 +217,7 @@ header {
 .slide {
     min-width: 100%;
     padding: 10px;
+    display: none;
 }
 
 .slide img, .slide video {
@@ -917,7 +918,7 @@ amountButtons.forEach(btn => {
 <script>
 let index = 0;
 
-const slides = document.querySelectorAll('.slide');
+const slides = document.querySelectorAll('.slider-buttons');
 const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 
